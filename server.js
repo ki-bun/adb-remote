@@ -5,7 +5,8 @@ const { execFile } = require('child_process');
 
 async function main() {
 	const rl = readline.createInterface({ input, output });	
-	
+	const { default: open } = await import('open');
+
 	try {
 		const ip = await rl.question("Enter the IP address: ");
 		const inputPort = await rl.question("Enter the port (Default 5555): ");
@@ -41,8 +42,10 @@ async function main() {
 
 		    console.log(stdout);
 
-		    app.listen(3000, () => {
-			console.log('Running on http://127.0.0.1:3000');
+		    app.listen(3000, async () => {
+			const url = `http://127.0.0.1:${port}`
+			console.log(`Running on ${url}`);
+			await open(url);
 		    });
 		});
 	} catch(err) {
