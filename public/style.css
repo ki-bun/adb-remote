@@ -15,3 +15,19 @@
     display: flex;
     gap: 8px;
 }
+
+.function-buttons {
+    display: flex;
+    justify-content: center;   
+    flex-direction: row;
+}
+
+.function-buttons button {
+    margin: 5px;
+    height: 60px;
+    width: 90px;
+}
+
+hr {
+    margin: 40px auto;
+}
